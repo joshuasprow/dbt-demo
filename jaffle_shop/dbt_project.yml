@@ -18,6 +18,6 @@ clean-targets:
 
 models:
   jaffle_shop:
-    # Applies to all files under models/example/
+    +materialized: table
     example:
-      materialized: view
+      +materialized: view
