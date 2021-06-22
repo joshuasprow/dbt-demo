@@ -1,23 +1,9 @@
-
-{{ config(materialized='view') }}
-
 with customers as (
-
-    select
-        1 as customer_id,
-        'josh' as first_name,
-        'sprow' as last_name
-
+    select * from {{ ref('stg_customers') }}
 ),
 
 orders as (
-
-    select
-        1 as order_id,
-        1 as customer_id,
-        current_date as order_date,
-        'started' as status
-
+    select * from {{ ref('stg_orders') }}
 ),
 
 customer_orders as (
